@@ -1,0 +1,19 @@
+.box {
+	min-height: 50px;
+
+	&--green {
+		background-color: green;
+	}
+
+	&--orange {
+		background-color: orange;
+	}
+
+	&--blue {
+		background-color: blue;
+	}
+
+	&--red {
+		background-color: red;
+	}
+}

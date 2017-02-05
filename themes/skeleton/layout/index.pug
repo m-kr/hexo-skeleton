@@ -1,0 +1,18 @@
+extends base.pug
+
+block vars
+	- var rootPath = './';
+	- var title = config.title;
+
+block content
+	.container-fluid
+		h1 Welcome to #{title}
+		.row
+			.col-xs-3
+				.box.box--green
+			.col-xs-3
+				.box.box--orange
+			.col-xs-3
+				.box.box--blue
+			.col-xs-3
+				.box.box--red

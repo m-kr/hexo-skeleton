@@ -1,0 +1,7 @@
+- var links = site.data.menu.links
+
+nav.site-menu
+	ul
+		each link, title in links
+			li
+				a(href=link)= title

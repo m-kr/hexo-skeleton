@@ -1,0 +1,14 @@
+.site-menu {
+	ul {
+		list-style: none;
+	}
+
+	li {
+		display: inline-block;
+		margin-left: 10px;
+
+		a {
+			font-size: 1.6rem;
+		}
+	}
+}

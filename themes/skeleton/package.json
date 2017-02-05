@@ -1,0 +1,12 @@
+{
+    "name": "hexo-skeleton-theme",
+    "version": "1.0.0",
+    "description": "Hexo theme build on pug, sass with skretch of site structure.",
+    "main": "index.js",
+    "author": "Maciej Krzemianowski",
+    "license": "MIT",
+    "devDependencies": {
+        "animatewithsass": "^3.2.1",
+        "bootstrap-sass": "^3.3.7"
+    }
+}
