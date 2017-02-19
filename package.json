@@ -1,6 +1,6 @@
 {
   "name": "hexo-skeleton",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js server",
     "build": "./node_modules/gulp/bin/gulp.js generate"
@@ -19,6 +19,7 @@
     "gulp-watch": "^4.3.11",
     "gulp.spritesmith": "^6.3.0",
     "hexo": "^3.2.0",
+    "hexo-autoprefixer": "^1.0.0",
     "hexo-browsersync": "^0.2.0",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",

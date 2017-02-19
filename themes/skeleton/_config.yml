@@ -6,3 +6,8 @@ node_sass:
   outputStyle: nested
   precision: 5
   sourceComments: false
+
+autoprefixer:
+  browsers:
+    - 'last 2 versions'
+  cascade: false
