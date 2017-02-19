@@ -1,4 +1,5 @@
 const gulp = require( 'gulp' );
+const os = require( 'os' );
 const browserSync = require( 'browser-sync' ).create();
 const $ = require( 'gulp-load-plugins' )( { camelize: true } );
 const del = require( 'del' );
@@ -10,6 +11,11 @@ const hexo = new Hexo( process.cwd(), {} );
 const themeRoot = './themes/skeleton';
 const destRoot = `${ themeRoot }/source/assets`;
 
+const browser = os.platform() === 'linux' ? 'google-chrome' : (
+	os.platform() === 'darwin' ? 'Google Chrome' : (
+	os.platform() === 'win32' ? 'chrome' : 'firefox')
+);
+
 const options = {
 	paths: {
 		imgSrc: `${ themeRoot }/images`,
@@ -20,6 +26,10 @@ const options = {
 		optimizationLevel: 3,
 		progressive: true,
 		interlaced: true
+	},
+	open: {
+		uri: 'http://localhost:4000',
+		app: browser
 	}
 };
 
@@ -83,6 +93,11 @@ gulp.task( 'watch', () => {
 	$.watch( `${ options.paths.imgSrc }/raster/**/*`, () => runSequence( 'clean-tmp', 'png-sprites', 'moveSprites', 'clean-tmp' ) )
 } );
 
+gulp.task( 'open', function() {
+	gulp.src( './public/' )
+		.pipe( $.open( options.open ) );
+} );
+
 gulp.task( 'hexo-server', ( cb ) => {
 	hexo.init().then( () => {
 		return hexo.call('server', {} );
@@ -109,5 +124,5 @@ gulp.task( 'hexo-generate', ( cb ) => {
 	} )
 } );
 
-gulp.task( 'server', ( cb ) => runSequence( 'clean-tmp', 'png-sprites', 'svg-sprites', 'moveSprites', 'clean-tmp', 'watch', 'hexo-server', cb ) );
+gulp.task( 'server', ( cb ) => runSequence( 'clean-tmp', 'png-sprites', 'svg-sprites', 'moveSprites', 'clean-tmp', 'watch', 'hexo-server', 'open', cb ) );
 gulp.task( 'generate', ( cb ) => runSequence( 'clean-tmp', 'png-sprites', 'svg-sprites', 'moveSprites', 'clean-tmp', 'hexo-generate', cb ) );
